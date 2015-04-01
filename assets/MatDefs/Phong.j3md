@@ -1,0 +1,46 @@
+// Jim Fan (lf2422)
+
+MaterialDef Phong
+{
+    MaterialParameters
+    {
+        // Ambient color
+        Color Ambient
+
+        // Diffuse color
+        Color Diffuse
+
+        // Specular color
+        Color Specular
+
+        // Specular power/shininess
+        Float Shininess
+
+        // Diffuse map
+        Texture2D DiffuseMap
+
+        // Use the provided ambient, diffuse, and specular colors
+        Boolean UseMaterialColors
+    }
+
+    Technique
+    {
+        LightMode MultiPass
+
+        VertexShader GLSL120:   Shaders/Phong.vert
+        FragmentShader GLSL120: Shaders/Phong.frag
+
+        WorldParameters
+        {
+            WorldViewProjectionMatrix
+            NormalMatrix
+            WorldViewMatrix
+            ViewMatrix
+        }
+
+        Defines
+        {
+            USE_COLOR : UseMaterialColors
+        }
+    }
+}

@@ -1,0 +1,25 @@
+// Jim Fan (lf2422)
+MaterialDef Plain
+{
+	MaterialParameters
+	{
+		Texture2D ColorMap
+		Color Color
+	}
+	
+	Technique
+	{
+		VertexShader GLSL120: Shaders/Plain.vert
+		FragmentShader GLSL120: Shaders/Plain.frag
+		
+		WorldParameters
+		{
+			WorldViewProjectionMatrix
+		}
+		
+		Defines
+		{
+			USE_TEXTURE: ColorMap
+		}
+	}
+}
